@@ -1,0 +1,55 @@
+ body {
+     font-family: Arial, sans-serif;
+     margin: 0;
+     padding: 20px;
+     background-color: #f0f0f0;
+ }
+
+ h1 {
+     text-align: center;
+     color: #333;
+ }
+
+ table {
+     width: 100%;
+     border-collapse: collapse;
+     margin-top: 20px;
+     background-color: white;
+ }
+
+ th,
+ td {
+     border: 1px solid #ccc;
+     padding: 10px;
+     text-align: center;
+ }
+
+ th {
+     background-color: #e0e0e0;
+ }
+
+ .time-slot {
+     background-color: #f5f5f5;
+     font-weight: bold;
+ }
+
+ .subject {
+     font-weight: bold;
+ }
+
+ .type {
+     font-style: italic;
+ }
+
+ .eloadas {
+     color: #c00;
+ }
+
+ .gyakorlat {
+     color: #00c;
+ }
+
+ .location,
+ .teacher {
+     font-size: 0.9em;
+ }
