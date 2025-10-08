@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<orarend>
-    <ora id="egy" tipus="eloadas">
+<orarend xmlns:xs="http://www.w3.org/2001/XMLSchema-instance"
+    xs:noNamespaceSchemaLocation="DBO8MH_orarend1.xsd">
+    <ora id="1" tipus="eloadas">
         <targy>Webtechnológiák I.</targy>
         <idopont>
             <nap>Hétfő</nap>
@@ -13,7 +14,7 @@
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
 
-    <ora id="ketto" tipus="eloadas">
+    <ora id="2" tipus="eloadas">
         <targy>Adatbázisrendszerek I.</targy>
         <idopont>
             <nap>Kedd</nap>
@@ -24,7 +25,7 @@
         <oktato>Dr. Kovács László József</oktato>
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
-    <ora id="harom" tipus="gyakorlat">
+    <ora id="3" tipus="gyakorlat">
         <targy>Adatbázisrendszerek I.</targy>
         <idopont>
             <nap>Kedd</nap>
@@ -35,7 +36,7 @@
         <oktato>Szűcs Miklós</oktato>
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
-    <ora id="negy" tipus="eloadas">
+    <ora id="4" tipus="eloadas">
         <targy>Szoftver Technológia</targy>
         <idopont>
             <nap>Szerda</nap>
@@ -46,7 +47,7 @@
         <oktato>Mileff Péter</oktato>
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
-    <ora id="ot" tipus="gyakorlat">
+    <ora id="5" tipus="gyakorlat">
         <targy>Adatbázisrendszerek I.</targy>
         <idopont>
             <nap>Szerda</nap>
@@ -57,7 +58,7 @@
         <oktato>Jlidli Ali</oktato>
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
-    <ora id="hat" tipus="gyakorlat">
+    <ora id="6" tipus="gyakorlat">
         <targy>Webtechnológiák I.</targy>
         <idopont>
             <nap>Szerda</nap>
@@ -68,7 +69,7 @@
         <oktato>Dr. Bednarik László</oktato>
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
-    <ora id="het" tipus="gyakorlat">
+    <ora id="7" tipus="gyakorlat">
         <targy>Webtechnológiák I. gyakorlat</targy>
         <idopont>
             <nap>Szerda</nap>
@@ -79,7 +80,7 @@
         <oktato>Dr. Bednarik László</oktato>
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
-    <ora id="nyolc" tipus="gyakorlat">
+    <ora id="8" tipus="gyakorlat">
         <targy>Adatbázisrendszerek I.</targy>
         <idopont>
             <nap>Szerda</nap>
@@ -90,7 +91,7 @@
         <oktato>Mészáros Gergő</oktato>
         <szak>Üzemmérnöki-informatika</szak>
     </ora>
-    <ora id="kilenc" tipus="eloadas">
+    <ora id="9" tipus="eloadas">
         <targy>Számíógép architertúrák</targy>
         <idopont>
             <nap>Csütörtök</nap>
