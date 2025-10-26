@@ -1,0 +1,56 @@
+<Vendeglatas>
+    <Etterem Etkod="E001">
+        <Nev>...</Nev>
+        <Cim>
+            <Varos>...</Varos>
+            <Utca>...</Utca>
+            <Hazszam>...</Hazszam>
+        </Cim>
+        <Csillag>...</Csillag>
+    </Etterem>
+
+    <Foszakacs Etkod="E001" E_F="F001">
+        <Nev>...</Nev>
+        <Eletkor>...</Eletkor>
+        <Vegzettsegek>
+            <Vegzettseg>...</Vegzettseg>
+            <Vegzettseg>...</Vegzettseg>
+        </Vegzettsegek>
+    </Foszakacs>
+
+    <Szakacs SzKod="S001" E_SZ="E001">
+        <Nev>...</Nev>
+        <Reszleg>...</Reszleg>
+        <Vegzettsegek>
+            <Vegzettseg>...</Vegzettseg>
+            <Vegzettseg>...</Vegzettseg>
+        </Vegzettsegek>
+    </Szakacs>
+
+    <Gyakornok GyKod="G001" E_GY="E001">
+        <Nev>...</Nev>
+        <Gyakorlat>
+            <Kezdete>...</Kezdete>
+            <Idotartama>...</Idotartama>
+        </Gyakorlat>
+        <Muszakok>
+            <Muszak>...</Muszak>
+            <Muszak>...</Muszak>
+        </Muszakok>
+    </Gyakornok>
+
+    <Vendeg VKod="V001">
+        <Nev>...</Nev>
+        <Eletkor>...</Eletkor>
+        <Cim>
+            <Varos>...</Varos>
+            <Utca>...</Utca>
+            <Hazszam>...</Hazszam>
+        </Cim>
+    </Vendeg>
+
+    <Rendeles E_V_V="V001" E_V_E="E001">
+        <Osszeg>...</Osszeg>
+        <Etel>...</Etel>
+    </Rendeles>
+</Vendeglatas>
