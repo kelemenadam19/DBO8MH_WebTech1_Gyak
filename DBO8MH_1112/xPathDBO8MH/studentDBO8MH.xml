@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diakok>
+    <diak id="1">
+        <vezeteknev>Kelemen</vezeteknev>
+        <keresztnev>Ádám</keresztnev>
+        <becenev>Ádó</becenev>
+        <kor>22</kor>
+    </diak>
+    
+    <diak id="2">
+        <vezeteknev>Juhász</vezeteknev>
+        <keresztnev>Balázs</keresztnev>
+        <becenev>Bazsi</becenev>
+        <kor>21</kor>
+    </diak>
+    
+    <diak id="3">
+        <vezeteknev>Kiss</vezeteknev>
+        <keresztnev>Gergő</keresztnev>
+        <becenev>Geri</becenev>
+        <kor>24</kor>
+    </diak>
+    
+    <diak id="4">
+        <vezeteknev>Szováti</vezeteknev>
+        <keresztnev>Olivér</keresztnev>
+        <becenev>Oli</becenev>
+        <kor>21</kor>
+    </diak>
+</diakok>
