@@ -23,8 +23,8 @@
 
     <Tulajdonos adoszam="111111-1-11">
         <Nev>
-            <Vezeteknev>Kovács</Vezeteknev>
-            <Keresztnev>János</Keresztnev>
+            <Vezeteknev>Kelemen</Vezeteknev>
+            <Keresztnev>Ádám</Keresztnev>
         </Nev>
         <Telefonszam>+36301234567</Telefonszam>
         <Telefonszam>+36709998877</Telefonszam>
@@ -48,8 +48,8 @@
 
     <Tulajdonos adoszam="222222-2-22">
         <Nev>
-            <Vezeteknev>Nagy</Vezeteknev>
-            <Keresztnev>Éva</Keresztnev>
+            <Vezeteknev>Juhász</Vezeteknev>
+            <Keresztnev>Balázs</Keresztnev>
         </Nev>
         <Telefonszam>+36209876543</Telefonszam>
         
@@ -65,7 +65,7 @@
     <Tulajdonos adoszam="333333-3-33">
         <Nev>
             <Vezeteknev>Kiss</Vezeteknev>
-            <Keresztnev>Péter</Keresztnev>
+            <Keresztnev>Gergő</Keresztnev>
         </Nev>
         <Telefonszam>+36705554433</Telefonszam>
         
