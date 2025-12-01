@@ -21,45 +21,70 @@ public class DBO8MHDOMRead {
             Document doc = builder.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            // Log fájl mentése
             File outputFile = new File("src/hu/domparse/dbo8mh/read_log.txt");
             
             try (PrintWriter writer = new PrintWriter(new FileWriter(outputFile))) {
                 
                 String rootNodeName = "Gyökér elem: " + doc.getDocumentElement().getNodeName();
                 printAndLog(rootNodeName, writer);
-                printAndLog("-------------------------", writer);
 
+                //  1. GYÁRTÓK BEOLVASÁSA (ÚJ) 
+                printAndLog("\n Gyártók (Származási ország) ", writer);
+                NodeList manufacturerList = doc.getElementsByTagName("Gyarto");
+                for (int i = 0; i < manufacturerList.getLength(); i++) {
+                    Node nNode = manufacturerList.item(i);
+                    if (nNode.getNodeType() == Node.ELEMENT_NODE) {
+                        Element elem = (Element) nNode;
+                        String nev = elem.getAttribute("gyartoNev");
+                        String orszag = elem.getElementsByTagName("Orszag").item(0).getTextContent();
+                        printAndLog("Gyártó: " + nev + " (" + orszag + ")", writer);
+                    }
+                }
+
+                //  2. TULAJDONOSOK BEOLVASÁSA 
+                printAndLog("\n Tulajdonosok ", writer);
                 NodeList ownerList = doc.getElementsByTagName("Tulajdonos");
                 for (int i = 0; i < ownerList.getLength(); i++) {
                     Node nNode = ownerList.item(i);
                     if (nNode.getNodeType() == Node.ELEMENT_NODE) {
                         Element elem = (Element) nNode;
                         String uid = elem.getAttribute("adoszam");
-                        String nev = elem.getElementsByTagName("Nev").item(0).getTextContent();
-                        String tel = elem.getElementsByTagName("Telefonszam").item(0).getTextContent();
                         
-                        printAndLog("\nTulajdonos [" + uid + "]", writer);
-                        printAndLog("  Név: " + nev, writer);
-                        printAndLog("  Tel: " + tel, writer);
+                        // ÖSSZETETT NÉV KEZELÉSE
+                        Element nevElem = (Element) elem.getElementsByTagName("Nev").item(0);
+                        String vnev = nevElem.getElementsByTagName("Vezeteknev").item(0).getTextContent();
+                        String knev = nevElem.getElementsByTagName("Keresztnev").item(0).getTextContent();
+                        String fullName = vnev + " " + knev;
 
+                        printAndLog("\nTulajdonos [" + uid + "]", writer);
+                        printAndLog("  Név: " + fullName, writer);
+
+                        // TÖBB TELEFONSZÁM KEZELÉSE
+                        NodeList telList = elem.getElementsByTagName("Telefonszam");
+                        for (int k = 0; k < telList.getLength(); k++) {
+                            printAndLog("  Tel (" + (k + 1) + "): " + telList.item(k).getTextContent(), writer);
+                        }
+
+                        // JÁRMŰVEK ÉS GYÁRTÓ REF
                         NodeList carList = elem.getElementsByTagName("Jarmu");
                         for (int j = 0; j < carList.getLength(); j++) {
                             Element carElem = (Element) carList.item(j);
                             String rendszam = carElem.getAttribute("rendszam");
                             String tipus = carElem.getElementsByTagName("Tipus").item(0).getTextContent();
+                            String gyartoRef = carElem.getElementsByTagName("GyartoRef").item(0).getTextContent(); // ÚJ
                             
-                            printAndLog("\tJármű: " + tipus + " (" + rendszam + ")", writer);
+                            printAndLog("Jármű: " + gyartoRef + " " + tipus + " (" + rendszam + ")", writer);
                             
                             Element forgElem = (Element) carElem.getElementsByTagName("Forgalmi").item(0);
                             String okmany = forgElem.getAttribute("okmanySz");
                             String kiallitva = forgElem.getElementsByTagName("Kiallitva").item(0).getTextContent();
-                            printAndLog("\t[Forgalmi: " + okmany + ", Kiállítva: " + kiallitva + "]", writer);
+                            printAndLog("[Forgalmi: " + okmany + ", Kiállítva: " + kiallitva + "]", writer);
                         }
                     }
                 }
 
-                printAndLog("\nSzervizek", writer);
+                //  3. SZERVIZEK 
+                printAndLog("\n Szervizek ", writer);
                 NodeList serviceList = doc.getElementsByTagName("Szerviz");
                 for (int i = 0; i < serviceList.getLength(); i++) {
                     Node nNode = serviceList.item(i);
@@ -73,7 +98,8 @@ public class DBO8MHDOMRead {
                     }
                 }
 
-                printAndLog("\nSzervizelések", writer);
+                //  4. SZERVIZELÉSEK 
+                printAndLog("\n Szervizelések ", writer);
                 NodeList logList = doc.getElementsByTagName("Szervizeles");
                 for (int i = 0; i < logList.getLength(); i++) {
                     Node nNode = logList.item(i);
@@ -86,7 +112,7 @@ public class DBO8MHDOMRead {
                         String sRef = elem.getElementsByTagName("SzervizRef").item(0).getTextContent();
                         
                         printAndLog("Bejegyzés [" + logID + "]: " + datum + " - " + leiras, writer);
-                        printAndLog("\tJármű Ref: " + jRef + ", Szerviz Ref: " + sRef, writer);
+                        printAndLog("Jármű Ref: " + jRef + ", Szerviz Ref: " + sRef, writer);
                     }
                 }
                 

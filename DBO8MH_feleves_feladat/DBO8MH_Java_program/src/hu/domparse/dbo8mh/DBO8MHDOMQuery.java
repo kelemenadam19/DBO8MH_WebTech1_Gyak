@@ -18,15 +18,18 @@ public class DBO8MHDOMQuery {
             Document doc = builder.parse(xmlFile);
             doc.getDocumentElement().normalize();
 
-            System.out.println("1. LEKÉRDEZÉS: Összes 'Opel' típusú autó");
+            System.out.println("1. LEKÉRDEZÉS: Összes 'Opel' gyártmányú autó");
+            // Most már GyartoRef-et is nézhetünk, vagy maradhat a Tipus contains 'Astra'
+            // De mivel a feladat "Opel típusút" ír, és van GyartoRef, használjuk azt is!
             NodeList carList = doc.getElementsByTagName("Jarmu");
             for (int i = 0; i < carList.getLength(); i++) {
                 Element car = (Element) carList.item(i);
-                String type = car.getElementsByTagName("Tipus").item(0).getTextContent();
+                String gyarto = car.getElementsByTagName("GyartoRef").item(0).getTextContent();
                 
-                if (type.contains("Opel")) {
+                if (gyarto.equalsIgnoreCase("Opel")) {
                     String plate = car.getAttribute("rendszam");
-                    System.out.println("Találat: " + type + " -> Rendszám: " + plate);
+                    String tipus = car.getElementsByTagName("Tipus").item(0).getTextContent();
+                    System.out.println("Találat: " + gyarto + " " + tipus + "  Rendszám: " + plate);
                 }
             }
 
@@ -34,14 +37,19 @@ public class DBO8MHDOMQuery {
             NodeList ownerList = doc.getElementsByTagName("Tulajdonos");
             for (int i = 0; i < ownerList.getLength(); i++) {
                 Element owner = (Element) ownerList.item(i);
-                String name = owner.getElementsByTagName("Nev").item(0).getTextContent();
                 
-                if (name.equals("Nagy Éva")) {
-                    System.out.println("Tulajdonos: " + name);
+                // ÖSSZETETT NÉV KEZELÉSE A KERESÉSHEZ
+                Element nevElem = (Element) owner.getElementsByTagName("Nev").item(0);
+                String vnev = nevElem.getElementsByTagName("Vezeteknev").item(0).getTextContent();
+                String knev = nevElem.getElementsByTagName("Keresztnev").item(0).getTextContent();
+                String fullName = vnev + " " + knev;
+                
+                if (fullName.equals("Nagy Éva")) {
+                    System.out.println("Tulajdonos megtalálva: " + fullName);
                     NodeList cars = owner.getElementsByTagName("Jarmu");
                     for(int j=0; j<cars.getLength(); j++) {
                         Element car = (Element) cars.item(j);
-                        System.out.println("  -> Autó: " + car.getAttribute("rendszam") + " (" + 
+                        System.out.println("Autó: " + car.getAttribute("rendszam") + " (" + 
                                            car.getElementsByTagName("Tipus").item(0).getTextContent() + ")");
                     }
                 }
@@ -59,7 +67,7 @@ public class DBO8MHDOMQuery {
                 }
             }
 
-            System.out.println("\n4. LEKÉRDEZÉS: rendszám alapján az autók szervizelései");
+            System.out.println("\n4. LEKÉRDEZÉS: 'ABC-123' rendszámú autó szervizelései");
             NodeList logs = doc.getElementsByTagName("Szervizeles");
             int count = 0;
             for (int i = 0; i < logs.getLength(); i++) {

@@ -13,6 +13,20 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="gyartoTipus">
+        <xs:sequence>
+            <xs:element name="Orszag" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="gyartoNev" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="nevTipus">
+        <xs:sequence>
+            <xs:element name="Vezeteknev" type="xs:string"/>
+            <xs:element name="Keresztnev" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <xs:complexType name="forgalmiTipus">
         <xs:sequence>
             <xs:element name="Kiallitva" type="xs:date"/>
@@ -23,6 +37,7 @@
     <xs:complexType name="jarmuTipus">
         <xs:sequence>
             <xs:element name="Tipus" type="xs:string"/>
+            <xs:element name="GyartoRef" type="xs:string"/>
             <xs:element name="Forgalmi" type="forgalmiTipus"/>
         </xs:sequence>
         <xs:attribute name="rendszam" type="rendszamTipus" use="required"/>
@@ -30,8 +45,8 @@
 
     <xs:complexType name="tulajdonosTipus">
         <xs:sequence>
-            <xs:element name="Nev" type="xs:string"/>
-            <xs:element name="Telefonszam" type="xs:string"/>
+            <xs:element name="Nev" type="nevTipus"/>
+            <xs:element name="Telefonszam" type="xs:string" maxOccurs="unbounded"/>
             <xs:element name="Jarmu" type="jarmuTipus" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="adoszam" type="adoszamTipus" use="required"/>
@@ -58,11 +73,17 @@
     <xs:element name="JarmuNyilvantartas">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="Gyarto" type="gyartoTipus" maxOccurs="unbounded"/>
                 <xs:element name="Tulajdonos" type="tulajdonosTipus" maxOccurs="unbounded"/>
                 <xs:element name="Szerviz" type="szervizTipus" maxOccurs="unbounded"/>
                 <xs:element name="Szervizeles" type="szervizelesTipus" maxOccurs="unbounded"/>
             </xs:sequence>
         </xs:complexType>
+
+        <xs:key name="GyartoKey">
+            <xs:selector xpath="Gyarto"/>
+            <xs:field xpath="@gyartoNev"/>
+        </xs:key>
 
         <xs:key name="TulajdonosKey">
             <xs:selector xpath="Tulajdonos"/>
@@ -78,6 +99,16 @@
             <xs:selector xpath="Szerviz"/>
             <xs:field xpath="@szervizID"/>
         </xs:key>
+
+        <xs:unique name="UniqueOkmany">
+            <xs:selector xpath="Tulajdonos/Jarmu/Forgalmi"/>
+            <xs:field xpath="@okmanySz"/>
+        </xs:unique>
+
+        <xs:keyref name="RefGyarto" refer="GyartoKey">
+            <xs:selector xpath="Tulajdonos/Jarmu"/>
+            <xs:field xpath="GyartoRef"/>
+        </xs:keyref>
 
         <xs:keyref name="RefJarmu" refer="JarmuKey">
             <xs:selector xpath="Szervizeles"/>

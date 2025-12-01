@@ -1,29 +1,55 @@
 Gyökér elem: JarmuNyilvantartas
--------------------------
+
+ Gyártók (Származási ország) 
+Gyártó: Opel (Németország)
+Gyártó: Ford (USA)
+Gyártó: Suzuki (Japán)
+Gyártó: Toyota (Japán)
+Gyártó: BMW (Németország)
+
+ Tulajdonosok 
 
 Tulajdonos [111111-1-11]
-  Név: Juhász Balázs
-  Tel: +36301234567
-    -> Jármű: Opel Astra (ABC-123)
-       [Forgalmi: OA-123456, Kiállítva: 2020-01-15]
-    -> Jármű: Nissan Micra (DEF-456)
-       [Forgalmi: FF-654321, Kiállítva: 2021-05-20]
+  Név: Kovács János
+  Tel (1): +36301234567
+  Tel (2): +36709998877
+Jármű: Opel Astra (ABC-123)
+[Forgalmi: OA-123456, Kiállítva: 2020-01-15]
+Jármű: Ford Focus (DEF-456)
+[Forgalmi: FF-654321, Kiállítva: 2021-05-20]
 
 Tulajdonos [222222-2-22]
-  Név: Kelemen Ádám
-  Tel: +36209876543
-    -> Jármű: Ford Focus (GHI-789)
-       [Forgalmi: SS-987654, Kiállítva: 2019-11-10]
+  Név: Nagy Éva
+  Tel (1): +36209876543
+Jármű: Suzuki Swift (GHI-789)
+[Forgalmi: SS-987654, Kiállítva: 2019-11-10]
 
-Szervizek
+Tulajdonos [333333-3-33]
+  Név: Kiss Péter
+  Tel (1): +36705554433
+Jármű: Toyota Corolla (JKL-001)
+[Forgalmi: TC-998877, Kiállítva: 2022-03-15]
+
+Tulajdonos [444444-4-44]
+  Név: Varga Judit
+  Tel (1): +36201112233
+Jármű: BMW X5 (MNO-999)
+[Forgalmi: BX-112233, Kiállítva: 2023-01-10]
+
+ Szervizek 
 Szerviz [SZ01]: Mester Szerviz Kft. (Budapest, Fő út 1.)
 Szerviz [SZ02]: Autó-Doktor Bt. (Miskolc, Egyetem út 5.)
 Szerviz [SZ03]: Gyors Szerviz (Debrecen, Nagyerdő sor 2.)
+Szerviz [SZ04]: Prémium Autóház (Szeged, Kossuth Lajos sgt. 10.)
 
-Szervizelések
+ Szervizelések 
 Bejegyzés [SZL001]: 2023-10-01 - Olajcsere
-	Jármű Ref: ABC-123, Szerviz Ref: SZ01
+Jármű Ref: ABC-123, Szerviz Ref: SZ01
 Bejegyzés [SZL002]: 2023-11-15 - Fékbetét csere
-	Jármű Ref: ABC-123, Szerviz Ref: SZ02
+Jármű Ref: ABC-123, Szerviz Ref: SZ02
 Bejegyzés [SZL003]: 2024-01-20 - Műszaki vizsga felkészítés
-	Jármű Ref: GHI-789, Szerviz Ref: SZ01
+Jármű Ref: GHI-789, Szerviz Ref: SZ01
+Bejegyzés [SZL004]: 2023-12-05 - Téli gumi csere
+Jármű Ref: JKL-001, Szerviz Ref: SZ03
+Bejegyzés [SZL005]: 2024-02-14 - Kötelező szerviz
+Jármű Ref: MNO-999, Szerviz Ref: SZ04

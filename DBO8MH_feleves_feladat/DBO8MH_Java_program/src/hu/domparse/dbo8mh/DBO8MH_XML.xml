@@ -1,19 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <JarmuNyilvantartas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DBO8MH_XSD.xsd">
     
+    <Gyarto gyartoNev="Opel">
+        <Orszag>Németország</Orszag>
+    </Gyarto>
+    
+    <Gyarto gyartoNev="Ford">
+        <Orszag>USA</Orszag>
+    </Gyarto>
+    
+    <Gyarto gyartoNev="Suzuki">
+        <Orszag>Japán</Orszag>
+    </Gyarto>
+
+    <Gyarto gyartoNev="Toyota">
+        <Orszag>Japán</Orszag>
+    </Gyarto>
+
+    <Gyarto gyartoNev="BMW">
+        <Orszag>Németország</Orszag>
+    </Gyarto>
+
     <Tulajdonos adoszam="111111-1-11">
-        <Nev>Juhász Balázs</Nev>
+        <Nev>
+            <Vezeteknev>Kovács</Vezeteknev>
+            <Keresztnev>János</Keresztnev>
+        </Nev>
         <Telefonszam>+36301234567</Telefonszam>
+        <Telefonszam>+36709998877</Telefonszam>
         
         <Jarmu rendszam="ABC-123">
-            <Tipus>Opel Astra</Tipus>
+            <Tipus>Astra</Tipus>
+            <GyartoRef>Opel</GyartoRef>
             <Forgalmi okmanySz="OA-123456">
                 <Kiallitva>2020-01-15</Kiallitva>
             </Forgalmi>
         </Jarmu>
         
         <Jarmu rendszam="DEF-456">
-            <Tipus>Nissan Micra</Tipus>
+            <Tipus>Focus</Tipus>
+            <GyartoRef>Ford</GyartoRef>
             <Forgalmi okmanySz="FF-654321">
                 <Kiallitva>2021-05-20</Kiallitva>
             </Forgalmi>
@@ -21,13 +47,49 @@
     </Tulajdonos>
 
     <Tulajdonos adoszam="222222-2-22">
-        <Nev>Kelemen Ádám</Nev>
+        <Nev>
+            <Vezeteknev>Nagy</Vezeteknev>
+            <Keresztnev>Éva</Keresztnev>
+        </Nev>
         <Telefonszam>+36209876543</Telefonszam>
         
         <Jarmu rendszam="GHI-789">
-            <Tipus>Ford Focus</Tipus>
+            <Tipus>Swift</Tipus>
+            <GyartoRef>Suzuki</GyartoRef>
             <Forgalmi okmanySz="SS-987654">
                 <Kiallitva>2019-11-10</Kiallitva>
+            </Forgalmi>
+        </Jarmu>
+    </Tulajdonos>
+
+    <Tulajdonos adoszam="333333-3-33">
+        <Nev>
+            <Vezeteknev>Kiss</Vezeteknev>
+            <Keresztnev>Péter</Keresztnev>
+        </Nev>
+        <Telefonszam>+36705554433</Telefonszam>
+        
+        <Jarmu rendszam="JKL-001">
+            <Tipus>Corolla</Tipus>
+            <GyartoRef>Toyota</GyartoRef>
+            <Forgalmi okmanySz="TC-998877">
+                <Kiallitva>2022-03-15</Kiallitva>
+            </Forgalmi>
+        </Jarmu>
+    </Tulajdonos>
+
+    <Tulajdonos adoszam="444444-4-44">
+        <Nev>
+            <Vezeteknev>Varga</Vezeteknev>
+            <Keresztnev>Judit</Keresztnev>
+        </Nev>
+        <Telefonszam>+36201112233</Telefonszam>
+        
+        <Jarmu rendszam="MNO-999">
+            <Tipus>X5</Tipus>
+            <GyartoRef>BMW</GyartoRef>
+            <Forgalmi okmanySz="BX-112233">
+                <Kiallitva>2023-01-10</Kiallitva>
             </Forgalmi>
         </Jarmu>
     </Tulajdonos>
@@ -45,6 +107,11 @@
     <Szerviz szervizID="SZ03">
         <Nev>Gyors Szerviz</Nev>
         <Cim>Debrecen, Nagyerdő sor 2.</Cim>
+    </Szerviz>
+
+    <Szerviz szervizID="SZ04">
+        <Nev>Prémium Autóház</Nev>
+        <Cim>Szeged, Kossuth Lajos sgt. 10.</Cim>
     </Szerviz>
 
     <Szervizeles szelID="SZL001">
@@ -66,6 +133,20 @@
         <Leiras>Műszaki vizsga felkészítés</Leiras>
         <JarmuRef>GHI-789</JarmuRef>
         <SzervizRef>SZ01</SzervizRef>
+    </Szervizeles>
+
+    <Szervizeles szelID="SZL004">
+        <Datum>2023-12-05</Datum>
+        <Leiras>Téli gumi csere</Leiras>
+        <JarmuRef>JKL-001</JarmuRef>
+        <SzervizRef>SZ03</SzervizRef>
+    </Szervizeles>
+
+    <Szervizeles szelID="SZL005">
+        <Datum>2024-02-14</Datum>
+        <Leiras>Kötelező szerviz</Leiras>
+        <JarmuRef>MNO-999</JarmuRef>
+        <SzervizRef>SZ04</SzervizRef>
     </Szervizeles>
 
 </JarmuNyilvantartas>
