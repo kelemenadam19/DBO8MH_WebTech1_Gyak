@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JarmuNyilvantartas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="DBO8MH_XSD.xsd">
+    
+    <Tulajdonos adoszam="111111-1-11">
+        <Nev>Juhász Balázs</Nev>
+        <Telefonszam>+36301234567</Telefonszam>
+        
+        <Jarmu rendszam="ABC-123">
+            <Tipus>Opel Astra</Tipus>
+            <Forgalmi okmanySz="OA-123456">
+                <Kiallitva>2020-01-15</Kiallitva>
+            </Forgalmi>
+        </Jarmu>
+        
+        <Jarmu rendszam="DEF-456">
+            <Tipus>Nissan Micra</Tipus>
+            <Forgalmi okmanySz="FF-654321">
+                <Kiallitva>2021-05-20</Kiallitva>
+            </Forgalmi>
+        </Jarmu>
+    </Tulajdonos>
+
+    <Tulajdonos adoszam="222222-2-22">
+        <Nev>Kelemen Ádám</Nev>
+        <Telefonszam>+36209876543</Telefonszam>
+        
+        <Jarmu rendszam="GHI-789">
+            <Tipus>Ford Focus</Tipus>
+            <Forgalmi okmanySz="SS-987654">
+                <Kiallitva>2019-11-10</Kiallitva>
+            </Forgalmi>
+        </Jarmu>
+    </Tulajdonos>
+
+    <Szerviz szervizID="SZ01">
+        <Nev>Mester Szerviz Kft.</Nev>
+        <Cim>Budapest, Fő út 1.</Cim>
+    </Szerviz>
+    
+    <Szerviz szervizID="SZ02">
+        <Nev>Autó-Doktor Bt.</Nev>
+        <Cim>Miskolc, Egyetem út 5.</Cim>
+    </Szerviz>
+    
+    <Szerviz szervizID="SZ03">
+        <Nev>Gyors Szerviz</Nev>
+        <Cim>Debrecen, Nagyerdő sor 2.</Cim>
+    </Szerviz>
+
+    <Szervizeles szelID="SZL001">
+        <Datum>2023-10-01</Datum>
+        <Leiras>Olajcsere</Leiras>
+        <JarmuRef>ABC-123</JarmuRef>
+        <SzervizRef>SZ01</SzervizRef>
+    </Szervizeles>
+
+    <Szervizeles szelID="SZL002">
+        <Datum>2023-11-15</Datum>
+        <Leiras>Fékbetét csere</Leiras>
+        <JarmuRef>ABC-123</JarmuRef>
+        <SzervizRef>SZ02</SzervizRef>
+    </Szervizeles>
+
+    <Szervizeles szelID="SZL003">
+        <Datum>2024-01-20</Datum>
+        <Leiras>Műszaki vizsga felkészítés</Leiras>
+        <JarmuRef>GHI-789</JarmuRef>
+        <SzervizRef>SZ01</SzervizRef>
+    </Szervizeles>
+
+</JarmuNyilvantartas>

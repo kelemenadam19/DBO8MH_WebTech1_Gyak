@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+
+    <xs:simpleType name="rendszamTipus">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{3}-[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="adoszamTipus">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{6}-[0-9]{1}-[0-9]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="forgalmiTipus">
+        <xs:sequence>
+            <xs:element name="Kiallitva" type="xs:date"/>
+        </xs:sequence>
+        <xs:attribute name="okmanySz" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="jarmuTipus">
+        <xs:sequence>
+            <xs:element name="Tipus" type="xs:string"/>
+            <xs:element name="Forgalmi" type="forgalmiTipus"/>
+        </xs:sequence>
+        <xs:attribute name="rendszam" type="rendszamTipus" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="tulajdonosTipus">
+        <xs:sequence>
+            <xs:element name="Nev" type="xs:string"/>
+            <xs:element name="Telefonszam" type="xs:string"/>
+            <xs:element name="Jarmu" type="jarmuTipus" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="adoszam" type="adoszamTipus" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="szervizTipus">
+        <xs:sequence>
+            <xs:element name="Nev" type="xs:string"/>
+            <xs:element name="Cim" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="szervizID" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="szervizelesTipus">
+        <xs:sequence>
+            <xs:element name="Datum" type="xs:date"/>
+            <xs:element name="Leiras" type="xs:string"/>
+            <xs:element name="JarmuRef" type="rendszamTipus"/>
+            <xs:element name="SzervizRef" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="szelID" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:element name="JarmuNyilvantartas">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Tulajdonos" type="tulajdonosTipus" maxOccurs="unbounded"/>
+                <xs:element name="Szerviz" type="szervizTipus" maxOccurs="unbounded"/>
+                <xs:element name="Szervizeles" type="szervizelesTipus" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+
+        <xs:key name="TulajdonosKey">
+            <xs:selector xpath="Tulajdonos"/>
+            <xs:field xpath="@adoszam"/>
+        </xs:key>
+
+        <xs:key name="JarmuKey">
+            <xs:selector xpath="Tulajdonos/Jarmu"/>
+            <xs:field xpath="@rendszam"/>
+        </xs:key>
+
+        <xs:key name="SzervizKey">
+            <xs:selector xpath="Szerviz"/>
+            <xs:field xpath="@szervizID"/>
+        </xs:key>
+
+        <xs:keyref name="RefJarmu" refer="JarmuKey">
+            <xs:selector xpath="Szervizeles"/>
+            <xs:field xpath="JarmuRef"/>
+        </xs:keyref>
+
+        <xs:keyref name="RefSzerviz" refer="SzervizKey">
+            <xs:selector xpath="Szervizeles"/>
+            <xs:field xpath="SzervizRef"/>
+        </xs:keyref>
+
+    </xs:element>
+
+</xs:schema>

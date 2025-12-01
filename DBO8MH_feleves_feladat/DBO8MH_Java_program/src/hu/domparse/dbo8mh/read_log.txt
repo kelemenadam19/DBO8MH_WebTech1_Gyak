@@ -1,0 +1,29 @@
+Gyökér elem: JarmuNyilvantartas
+-------------------------
+
+Tulajdonos [111111-1-11]
+  Név: Juhász Balázs
+  Tel: +36301234567
+    -> Jármű: Opel Astra (ABC-123)
+       [Forgalmi: OA-123456, Kiállítva: 2020-01-15]
+    -> Jármű: Nissan Micra (DEF-456)
+       [Forgalmi: FF-654321, Kiállítva: 2021-05-20]
+
+Tulajdonos [222222-2-22]
+  Név: Kelemen Ádám
+  Tel: +36209876543
+    -> Jármű: Ford Focus (GHI-789)
+       [Forgalmi: SS-987654, Kiállítva: 2019-11-10]
+
+Szervizek
+Szerviz [SZ01]: Mester Szerviz Kft. (Budapest, Fő út 1.)
+Szerviz [SZ02]: Autó-Doktor Bt. (Miskolc, Egyetem út 5.)
+Szerviz [SZ03]: Gyors Szerviz (Debrecen, Nagyerdő sor 2.)
+
+Szervizelések
+Bejegyzés [SZL001]: 2023-10-01 - Olajcsere
+	Jármű Ref: ABC-123, Szerviz Ref: SZ01
+Bejegyzés [SZL002]: 2023-11-15 - Fékbetét csere
+	Jármű Ref: ABC-123, Szerviz Ref: SZ02
+Bejegyzés [SZL003]: 2024-01-20 - Műszaki vizsga felkészítés
+	Jármű Ref: GHI-789, Szerviz Ref: SZ01
