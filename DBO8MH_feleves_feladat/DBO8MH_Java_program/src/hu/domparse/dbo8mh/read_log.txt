@@ -10,7 +10,7 @@ Gyártó: BMW (Németország)
  Tulajdonosok 
 
 Tulajdonos [111111-1-11]
-  Név: Kovács János
+  Név: Kelemen Ádám
   Tel (1): +36301234567
   Tel (2): +36709998877
 Jármű: Opel Astra (ABC-123)
@@ -19,13 +19,13 @@ Jármű: Ford Focus (DEF-456)
 [Forgalmi: FF-654321, Kiállítva: 2021-05-20]
 
 Tulajdonos [222222-2-22]
-  Név: Nagy Éva
+  Név: Juhász Balázs
   Tel (1): +36209876543
 Jármű: Suzuki Swift (GHI-789)
 [Forgalmi: SS-987654, Kiállítva: 2019-11-10]
 
 Tulajdonos [333333-3-33]
-  Név: Kiss Péter
+  Név: Kiss Gergő
   Tel (1): +36705554433
 Jármű: Toyota Corolla (JKL-001)
 [Forgalmi: TC-998877, Kiállítva: 2022-03-15]

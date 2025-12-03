@@ -19,8 +19,6 @@ public class DBO8MHDOMQuery {
             doc.getDocumentElement().normalize();
 
             System.out.println("1. LEKÉRDEZÉS: Összes 'Opel' gyártmányú autó");
-            // Most már GyartoRef-et is nézhetünk, vagy maradhat a Tipus contains 'Astra'
-            // De mivel a feladat "Opel típusút" ír, és van GyartoRef, használjuk azt is!
             NodeList carList = doc.getElementsByTagName("Jarmu");
             for (int i = 0; i < carList.getLength(); i++) {
                 Element car = (Element) carList.item(i);
